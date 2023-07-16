@@ -9,14 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/highlight.js": "^10.1.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "highlight.js": "^11.8.0",
+    "html-react-parser": "^4.0.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-highlightjs": "^4.0.1",
     "next": "13.4.10",
+    "node-fetch": "^3.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3"
   }
 }

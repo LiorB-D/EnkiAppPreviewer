@@ -1,107 +1,107 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+.phoneFrame {
+    width: 3.8in;
+    height: 6.5in;
+    border: 10px solid black;
+    background: linear-gradient(#110B2A, 65%,  #2c4738);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.workoutBody {
+    margin: 10px;
+    padding: 15px;
+    background: #262A35;
+    border-radius: 10px;
+}
+.workoutBody p {
+    white-space: pre-line;
+    font-size: 16px;
+    color: white;
+    font-family: 'Trebuchet MS';
+}
+.workoutBody h2 {
+    white-space: pre-line; 
+    color: white;
+}
+.workoutBody p code {
+    background-color: rgba(238, 255, 0, 0.19);
+    color: rgb(217, 247, 214)
+}
+.workoutBody ol code {
+    background-color: rgba(238, 255, 0, 0.19);
+    color: rgb(217, 247, 214)
+}
+.workoutBody ul code {
+    background-color: rgba(238, 255, 0, 0.19);
+    color: rgb(217, 247, 214)
+}
+.workoutBody pre {
+    background-color: #212038;
+    color: gray;
+    padding: 10px;
+    white-space: pre-line; 
+    margin-top: 0;
+}
+.workoutBody table {
+    border-collapse: collapse;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.workoutBody thead {
+    background-color:#83eaff;
+    color: black;
+} 
+.workoutBody th {
+    padding: 5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+.workoutBody tbody tr {
+    background-color: #252a36;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.workoutBody td {
+    padding: 5px;
+    color: white;
+}
+.codeTopBar {
+    content: "";
+    display: block;
+    height: 20px;  /* Adjust as needed */
+    background-color: #3A3D54;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 0;
+}
+.workoutBody ol {
+    color: white;
+    font-size: 16px;
+}
+.workoutBody ul {
+    color: white;
+    font-size: 16px;
 }
 
-html,
+.workoutBody blockquote {
+    background-color: #4ed0ea54;
+    margin-left: 0;
+    margin-right: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+}
+
+.hljs-built_in{
+    color: #bd93f9
+}
+.hljs-keyword {
+    color: #bd93f9
+}
+.hljs-number{
+    color: #ffb86c
+}
+.function_ {
+    color: #8be9fd
+}
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    justify-content: center;
+    align-items: center;
 }
