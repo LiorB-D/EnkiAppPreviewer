@@ -22,6 +22,14 @@
     white-space: pre-line; 
     color: white;
 }
+.workoutBody h1 {
+    white-space: pre-line; 
+    color: white;
+}
+.workoutBody h3 {
+    white-space: pre-line; 
+    color: white;
+}
 .workoutBody p code {
     background-color: rgba(238, 255, 0, 0.19);
     color: rgb(217, 247, 214)

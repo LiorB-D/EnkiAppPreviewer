@@ -24,22 +24,23 @@ import parse, {
   });
 
 export async function generateWorkout(branch: String, workoutDir: String): Promise<Insight[]> {
-    console.log("Generating workout")
+    
     const url = `https://api.github.com/repos/enkidevs/curriculum/contents/${workoutDir}/README.md?ref=${branch}`;
     const options = {
         headers: { 
             'Accept': 'application/vnd.github.v3.raw',
-            'Authorization': `Bearer ${process.env.REACT_APP_GITHUB_KEY}`, // Replace 'YOUR-TOKEN' with your actual token
+            'Authorization': `bearer ${process.env.REACT_APP_GITHUB_KEY}`, 
             'X-GitHub-Api-Version': '2022-11-28'
         }
     };
     const insights: Insight[] = []
+
     try {
         
         const response = await fetch(url, options)
 
         const text = await response.text() + 'exercises:'
-     
+        
         const startIndex = text.indexOf('insights:')
         const endIndex = text.indexOf('exercises:', startIndex)
 
@@ -47,7 +48,7 @@ export async function generateWorkout(branch: String, workoutDir: String): Promi
         for(let i = 1; i < workoutsRaw.length - 1; i++) {
             const startIndex = workoutsRaw[i].indexOf('-')
             const insightName = workoutsRaw[i].substring(startIndex + 1).trim()
-          
+            
             const insightHtml = await generateInsightHTML(branch, workoutDir, insightName)
 
             insights.push(insightHtml)
@@ -78,7 +79,8 @@ export async function generateInsightHTML(branch: String, workoutDir: String, in
     try {
         // Fetch the markdown content
         const response = await fetch(url, options);
-        const text = await response.text() + "\n ---";
+        const text = await response.text() + "\n---";
+       
         let insightTitle = "Error parsing Title"
         let titleMatch = text.match(/# (.*?)\n/)
         if(titleMatch) {
@@ -107,7 +109,7 @@ export async function generateInsightHTML(branch: String, workoutDir: String, in
             }
 
         }
-        return {title: "Error", body: []}
+        return {title: "Error could not find header", body: []}
   
     } catch (error) {
         console.error(`Error fetching or parsing content from ${url}: ${error}`);
