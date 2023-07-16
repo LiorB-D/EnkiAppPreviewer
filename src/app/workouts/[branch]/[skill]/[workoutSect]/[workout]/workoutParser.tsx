@@ -24,7 +24,7 @@ import parse, {
   });
 
 export async function generateWorkout(branch: String, workoutDir: String): Promise<Insight[]> {
-    console.log("Generating workout")
+   
     const url = `https://api.github.com/repos/enkidevs/curriculum/contents/${workoutDir}/README.md?ref=${branch}`;
     const options = {
         headers: { 
@@ -33,13 +33,13 @@ export async function generateWorkout(branch: String, workoutDir: String): Promi
             'X-GitHub-Api-Version': '2022-11-28'
         }
     };
-    console.log(url)
+   
     const insights: Insight[] = []
 
     try {
         
         const response = await fetch(url, options)
-        console.log(response)
+        
         const text = await response.text() + 'exercises:'
         
         const startIndex = text.indexOf('insights:')
@@ -66,7 +66,7 @@ export async function generateInsightHTML(branch: String, workoutDir: String, in
     // Construct the URL
     
     const url = `https://api.github.com/repos/enkidevs/curriculum/contents/${workoutDir}/${insight}.md?ref=${branch}`;
-    console.log(url)
+   
     const options = {
         headers: { 
             'Accept': 'application/vnd.github.v3.raw',
@@ -80,7 +80,6 @@ export async function generateInsightHTML(branch: String, workoutDir: String, in
     try {
         // Fetch the markdown content
         const response = await fetch(url, options);
-        console.log(response)
         const text = await response.text() + "\n---";
         
         let insightTitle = "Error parsing Title"
