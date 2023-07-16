@@ -9,7 +9,7 @@ import parse, {
     HTMLReactParserOptions
   } from "html-react-parser";
 
-  const md = new MarkdownIt({
+  const md: MarkdownIt = new MarkdownIt({
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
