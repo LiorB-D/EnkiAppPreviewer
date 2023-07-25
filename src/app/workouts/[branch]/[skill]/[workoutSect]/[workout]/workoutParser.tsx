@@ -39,20 +39,27 @@ export async function generateWorkout(branch: String, workoutDir: String): Promi
     try {
         
         const response = await fetch(url, options)
-        
-        const text = await response.text() + 'exercises:'
+        const text = await response.text()
+
         
         const startIndex = text.indexOf('insights:')
-        const endIndex = text.indexOf('exercises:', startIndex)
+        let endIndex = text.indexOf('exercises:', startIndex)
+
+        if(text.indexOf('exercises:', startIndex) == -1) {
+            endIndex = text.indexOf('aspects:', startIndex)
+        }
+        
 
         const workoutsRaw = text.substring(startIndex, endIndex).split("\n")
         for(let i = 1; i < workoutsRaw.length - 1; i++) {
             const startIndex = workoutsRaw[i].indexOf('-')
-            const insightName = workoutsRaw[i].substring(startIndex + 1).trim()
-            
-            const insightHtml = await generateInsightHTML(branch, workoutDir, insightName)
+            if(startIndex >= 0) {
+                const insightName = workoutsRaw[i].substring(startIndex + 1).trim()
+                
+                const insightHtml = await generateInsightHTML(branch, workoutDir, insightName)
 
-            insights.push(insightHtml)
+                insights.push(insightHtml)
+            }
         }
         
     } catch (error) {
@@ -66,7 +73,7 @@ export async function generateInsightHTML(branch: String, workoutDir: String, in
     // Construct the URL
     
     const url = `https://api.github.com/repos/enkidevs/curriculum/contents/${workoutDir}/${insight}.md?ref=${branch}`;
-   
+    console.log(url)
     const options = {
         headers: { 
             'Accept': 'application/vnd.github.v3.raw',
