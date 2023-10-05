@@ -1,5 +1,4 @@
 import {generateInsightHTML, generateWorkout} from './workoutParser'
-import {ReactNode} from 'react';
 import InsightView from './insightView'
 
 
